@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Portfolio | My Projects{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8 border-b pb-4">My Projects</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for project in projects %}
+        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100">
+            <!-- Image Section -->
+            {% if project.image %}
+                <div class="h-48 overflow-hidden">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+            {% else %}
+                <div class="h-48 bg-gray-200 flex items-center justify-center text-gray-400">
+                    <span>No Image</span>
+                </div>
+            {% endif %}
+
+            <!-- Content Section -->
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-2">
+                    <h2 class="text-xl font-bold text-gray-900">{{ project.title }}</h2>
+                </div>
+                
+                <p class="text-gray-600 mb-4 text-sm line-clamp-3">
+                    {{ project.description }}
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    {% for tag in project.tags.all %}
+                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                        #{{ tag.name }}
+                    </span>
+                    {% endfor %}
+                </div>
+
+                <a href="{% url 'project_detail' project.pk %}" class="block w-full text-center bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                    View Case Study
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-span-3 text-center py-12">
+            <p class="text-gray-500 text-lg">No projects found. Add some in the Admin Panel!</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
