@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,17 @@
     <!-- Tailwind CSS for instant styling -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
     <!-- Navbar -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="/" class="font-bold text-2xl tracking-tight hover:text-gray-600 transition">Ramakrishna Saravanan</a>
+            <a href="/" class="font-bold text-2xl tracking-tight hover:text-gray-600 transition">Ramakrishna
+                Saravanan</a>
             <div class="space-x-6 text-sm font-medium text-gray-600">
                 <a href="/" class="hover:text-black transition">Home</a>
                 <a href="{% url 'project_list' %}" class="hover:text-black transition">Work</a>
-                <a href="{% url 'post_list' %}" class="hover:text-black transition">Blog</a>
             </div>
         </div>
     </nav>
@@ -32,23 +34,27 @@
     <footer class="bg-gray-900 text-white py-6 mt-auto">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                
+
                 <!-- Copyright Only -->
                 <div class="mb-4 md:mb-0 text-center md:text-left">
                     <p class="text-gray-400 text-sm">
-                        &copy; {% now "Y" %} Ramakrishna Saravanan || Built with <span class="text-white">Django</span> & <span class="text-white">Tailwind</span>.
+                        &copy; {% now "Y" %} Ramakrishna Saravanan || Built with <span class="text-white">Django</span>
+                        & <span class="text-white">Tailwind</span>.
                     </p>
-                </div>  
+                </div>
 
                 <!-- Social Links -->
                 <div class="flex space-x-8 text-sm font-medium">
-                    <a href="https://github.com/RickuSicku/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <a href="https://github.com/RickuSicku/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors duration-300">
                         GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/ramakrishna-saravanan-146078230/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <a href="https://www.linkedin.com/in/ramakrishna-saravanan-146078230/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors duration-300">
                         LinkedIn
                     </a>
-                    <a href="mailto:ramakrishna1106s@gmail.com" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <a href="mailto:ramakrishna1106s@gmail.com"
+                        class="text-gray-400 hover:text-white transition-colors duration-300">
                         Contact
                     </a>
                 </div>
@@ -58,4 +64,5 @@
     </footer>
 
 </body>
+
 </html>

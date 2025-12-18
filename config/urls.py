@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),        # Routes for Home
     path('portfolio/', include('portfolio.urls')), # Routes for Projects
-    path('blog/', include('blog.urls')),   # We will do this later, but you can add it now
 ]
 
 # This allows images to be served during development
