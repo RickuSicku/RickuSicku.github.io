@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-from pathlib import Path
 import os
+import sys
+from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()  # This loads the .env file
@@ -135,3 +136,35 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Logging Configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
+
+# Debugging Paths
+print(f"DEBUG: BASE_DIR={BASE_DIR}", file=sys.stderr)
+print(f"DEBUG: STATIC_ROOT={STATIC_ROOT}", file=sys.stderr)
+if os.path.exists(BASE_DIR):
+    print(f"DEBUG: Contents of BASE_DIR: {os.listdir(BASE_DIR)}", file=sys.stderr)
+if os.path.exists(STATIC_ROOT):
+    print(f"DEBUG: Contents of STATIC_ROOT: {os.listdir(STATIC_ROOT)}", file=sys.stderr)
+else:
+    print(f"DEBUG: STATIC_ROOT does not exist!", file=sys.stderr)
