@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Home | MyPortfolio{% endblock %}
+{% block title %}Ramakrishna's Portfolio{% endblock %}
 
 {% block content %}
 
@@ -16,12 +16,12 @@
                 <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">Hi, I am</span>
             </div>
 
-            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
                 <!-- "An" De-emphasized -->
-                <span class="text-gray-400 text-3xl md:text-4xl font-semibold mr-2 align-middle"></span>
+                <span class="text-gray-400 text-2xl md:text-4xl font-semibold mr-2 align-middle"></span>
                 <span class="relative inline-block text-gray-900 z-10"> An Engineer </span><br>
 
-                <span class="text-gray-500 text-4xl md:text-5xl font-bold">
+                <span class="text-gray-500 text-3xl md:text-5xl font-bold">
                     who specializes in</br>
 
                     <!-- Data with Gradient Underline -->
@@ -69,7 +69,7 @@
 
             <!-- The Headshot -->
             <div
-                class="relative rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition duration-500 border-4 border-white w-80 h-80 md:w-[500px] md:h-[500px]">
+                class="relative rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition duration-500 border-4 border-white w-64 h-64 md:w-[500px] md:h-[500px]">
                 <img src="{% static 'img/profile.jpg' %}"
                     onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Felix'" alt="Profile Headshot"
                     class="object-cover w-full h-full">
@@ -89,11 +89,13 @@
 
         <div class="relative">
             <!-- The Vertical Line (The Map Path) -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 rounded-full"></div>
+            <div
+                class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 rounded-full">
+            </div>
 
             <!-- Timeline Item 1 (Left Side) -->
-            <div class="relative flex items-center justify-between mb-12 w-full">
-                <div class="w-5/12 order-1 text-right pr-8">
+            <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 w-full">
+                <div class="w-full md:w-5/12 order-2 md:order-1 text-center md:text-right md:pr-8 mt-4 md:mt-0">
                     <h3 class="font-bold text-xl text-gray-800">B.Tech at IITP</h3>
                     <span class="text-blue-600 font-mono text-sm">Dec 2021 - May 2025</span>
                     <p class="text-gray-500 text-sm mt-2">
@@ -102,10 +104,11 @@
                         AI here.
                     </p>
                 </div>
+                <!-- Number Circle -->
                 <div
-                    class="z-10 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg border-4 border-white absolute left-1/2 transform -translate-x-1/2">
+                    class="z-10 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg border-4 border-white md:absolute md:left-1/2 md:transform md:-translate-x-1/2 order-1 md:order-1 mb-4 md:mb-0">
                     1</div>
-                <div class="w-5/12 order-1 pl-8">
+                <div class="w-full md:w-5/12 order-3 md:order-1 md:pl-8">
                     <!-- Optional Image for this event -->
                     <div class="h-48 w-full bg-gray-100 rounded-lg overflow-hidden shadow-sm">
                         <img src="{% static 'Journey/IITP/IMG20240403175353.jpg' %}"
@@ -115,8 +118,8 @@
             </div>
 
             <!-- Timeline Item 2 (Right Side) -->
-            <div class="relative flex items-center justify-between mb-12 w-full">
-                <div class="w-5/12 order-1 text-right pr-8">
+            <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 w-full">
+                <div class="w-full md:w-5/12 order-3 md:order-1 md:text-right md:pr-8">
                     <!-- Image on left for variety -->
                     <div class="h-48 w-full bg-gray-100 rounded-lg overflow-hidden shadow-sm">
                         <img src="{% static 'Journey/SPARK/IMG20240705191136~2.jpg' %}"
@@ -124,9 +127,9 @@
                     </div>
                 </div>
                 <div
-                    class="z-10 bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg border-4 border-white absolute left-1/2 transform -translate-x-1/2">
+                    class="z-10 bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg border-4 border-white md:absolute md:left-1/2 md:transform md:-translate-x-1/2 order-1 md:order-1 mb-4 md:mb-0">
                     2</div>
-                <div class="w-5/12 order-1 pl-8">
+                <div class="w-full md:w-5/12 order-2 md:order-1 text-center md:text-left md:pl-8 mt-4 md:mt-0">
                     <h3 class="font-bold text-xl text-gray-800">SPARK IITR</h3>
                     <span class="text-purple-600 font-mono text-sm">May 2024 - Jul 2024</span>
                     <p class="text-gray-500 text-sm mt-2">
@@ -137,8 +140,8 @@
             </div>
 
             <!-- Timeline Item 3 (Left Side) -->
-            <div class="relative flex items-center justify-between mb-12 w-full">
-                <div class="w-5/12 order-1 text-right pr-8">
+            <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 w-full">
+                <div class="w-full md:w-5/12 order-2 md:order-1 text-center md:text-right md:pr-8 mt-4 md:mt-0">
                     <h3 class="font-bold text-xl text-gray-800">Samsung PRISM</h3>
                     <span class="text-green-600 font-mono text-sm">Jul 2024 - Mar 2025</span>
                     <p class="text-gray-500 text-sm mt-2">
@@ -148,9 +151,9 @@
                     </p>
                 </div>
                 <div
-                    class="z-10 bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg border-4 border-white absolute left-1/2 transform -translate-x-1/2">
+                    class="z-10 bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg border-4 border-white md:absolute md:left-1/2 md:transform md:-translate-x-1/2 order-1 md:order-1 mb-4 md:mb-0">
                     3</div>
-                <div class="w-5/12 order-1 pl-8">
+                <div class="w-full md:w-5/12 order-3 md:order-1 md:pl-8">
                     <div class="h-48 w-full bg-gray-100 rounded-lg overflow-hidden shadow-sm">
                         <img src="{% static 'Journey/PRISM/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ec285aaef7cc6ddc6c23bad47c8cf39b6bf601434aa912e008f44f13c7909a98b87.png' %}"
                             class="w-full h-full object-cover opacity-80">
@@ -159,8 +162,8 @@
             </div>
 
             <!-- Timeline Item 4 (Right Side) -->
-            <div class="relative flex items-center justify-between mb-12 w-full">
-                <div class="w-5/12 order-1 text-right pr-8">
+            <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 w-full">
+                <div class="w-full md:w-5/12 order-3 md:order-1 md:text-right md:pr-8">
                     <!-- Image on left for variety -->
                     <div class="h-48 w-full bg-gray-100 rounded-lg overflow-hidden shadow-sm">
                         <img src="{% static 'Journey/NU/IMG20251015135956~2.jpg' %}"
@@ -168,9 +171,9 @@
                     </div>
                 </div>
                 <div
-                    class="z-10 bg-orange-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg border-4 border-white absolute left-1/2 transform -translate-x-1/2">
+                    class="z-10 bg-orange-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-lg border-4 border-white md:absolute md:left-1/2 md:transform md:-translate-x-1/2 order-1 md:order-1 mb-4 md:mb-0">
                     4</div>
-                <div class="w-5/12 order-1 pl-8">
+                <div class="w-full md:w-5/12 order-2 md:order-1 text-center md:text-left md:pl-8 mt-4 md:mt-0">
                     <h3 class="font-bold text-xl text-gray-800">MSAI at Northwestern University</h3>
                     <span class="text-orange-600 font-mono text-sm">Sep 2025 - Present</span>
                     <p class="text-gray-500 text-sm mt-2">
