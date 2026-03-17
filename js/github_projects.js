@@ -9,45 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
         "RickuSicku.github.io": "Personal Portfolio Website",
         "Physics-Informed-Machine-Learning-Robustness-and-Interpretability": "PINN : Interpretability & Simulations",
         "Ethereum-Phishing-Scam-Detection": "Ethereum Scam Detection",
-        "msai349-violence-detection": "Real Time CCTV - Violence Detection",
-        "smart-horse-self-directed-reinforcement-learning": "Smart Horse Self Directed Reinforcement Learning"
+        "msai349-violence-detection": "Real Time CCTV - Violence Detection"
         // Add more here: "exact-repo-name": "New Name"
     };
 
     async function fetchProjects() {
         try {
-            // Fetch User's Repos
-            const userReposPromise = fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
-
-            // Fetch Specific External Repos
-            const externalReposPromises = [
-                fetch('https://api.github.com/repos/KarlMa4/msai349-violence-detection')
-            ];
-
-            const [userResponse, ...externalResponses] = await Promise.all([userReposPromise, ...externalReposPromises]);
+            // Fetch User's Repos Only (private repos are hardcoded in Featured Projects section)
+            const userResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
 
             if (!userResponse.ok) throw new Error('GitHub API request failed for user repos');
 
             let userData = await userResponse.json();
 
-            // Process external repos
-            let externalData = [];
-            for (const response of externalResponses) {
-                if (response.ok) {
-                    externalData.push(await response.json());
-                }
-            }
-
-            // Combine
-            let projects = [...userData, ...externalData];
-
             // Filter out forks (display only original work)
-            // We expect external repos added explicitly to be shown regardless, 
-            // but for now we apply the logic: Show if it's NOT a fork OR if it's one of our explicitly added external repos.
-            projects = projects.filter(p => {
-                const isExternal = externalData.some(ext => ext.id === p.id);
-                return isExternal || !p.fork;
-            });
+            let projects = userData.filter(p => !p.fork);
 
             // Sort by updated time
             projects.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
