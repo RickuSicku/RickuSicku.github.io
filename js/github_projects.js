@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         "Physics-Informed-Machine-Learning-Robustness-and-Interpretability": "PINN : Interpretability & Simulations",
         "Ethereum-Phishing-Scam-Detection": "Ethereum Scam Detection",
         "msai349-violence-detection": "Real Time CCTV - Violence Detection",
+        "smart-horse-self-directed-reinforcement-learning": "Smart Horse Self Directed Reinforcement Learning"
         // Add more here: "exact-repo-name": "New Name"
     };
 

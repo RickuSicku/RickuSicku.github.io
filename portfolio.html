@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Ramakrishna's Portfolio{% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+    <title>Portfolio | My Projects</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
     <!-- Tailwind CSS for instant styling -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -17,13 +16,13 @@
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="/" class="font-bold text-2xl tracking-tight hover:text-gray-600 transition">Ramakrishna
+                <a href="index.html" class="font-bold text-2xl tracking-tight hover:text-gray-600 transition">Ramakrishna
                     Saravanan</a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
-                    <a href="/" class="hover:text-black transition">Home</a>
-                    <a href="{% url 'project_list' %}" class="hover:text-black transition">Work</a>
+                    <a href="index.html" class="hover:text-black transition">Home</a>
+                    <a href="portfolio.html" class="hover:text-black transition">Work</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -39,8 +38,8 @@
 
             <!-- Mobile Menu content -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-100 rounded">Home</a>
-                <a href="{% url 'project_list' %}" class="block py-2 px-4 text-sm hover:bg-gray-100 rounded">Work</a>
+                <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-100 rounded">Home</a>
+                <a href="portfolio.html" class="block py-2 px-4 text-sm hover:bg-gray-100 rounded">Work</a>
             </div>
         </div>
     </nav>
@@ -55,11 +54,38 @@
         });
     </script>
 
-    <!-- Main Content Injector -->
-    <!-- This is where other templates will inject their specific HTML -->
+    <!-- Main Content -->
     <main class="container mx-auto px-4 py-8 flex-grow">
-        {% block content %}
-        {% endblock %}
+<div class="max-w-6xl mx-auto">
+
+    <!-- GitHub Projects Section (Dynamic) -->
+    <div class="flex items-center justify-between mb-8 border-b pb-4">
+        <h2 class="text-3xl font-bold">Projects</h2>
+        <a href="https://github.com/RickuSicku" target="_blank"
+            class="text-sm font-medium text-gray-600 hover:text-black flex items-center">
+            View on GitHub
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- Loading State -->
+    <div id="github-loading" class="flex justify-center py-12">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+    </div>
+
+    <!-- Grid Container -->
+    <div id="github-projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Content injected by JS -->
+    </div>
+
+</div>
+
+<!-- Load GitHub Fetcher Script -->
+<script src="js/github_projects.js"></script>
+
     </main>
 
     <!-- Footer (Updated) -->
@@ -70,7 +96,7 @@
                 <!-- Copyright Only -->
                 <div class="mb-4 md:mb-0 text-center md:text-left">
                     <p class="text-gray-400 text-sm">
-                        &copy; {% now "Y" %} Ramakrishna Saravanan || Built with <span class="text-white">Django</span>
+                        &copy; <span id="year"></span> Ramakrishna Saravanan || Built with <span class="text-white">HTML</span>
                         & <span class="text-white">Tailwind</span>.
                     </p>
                 </div>
@@ -94,6 +120,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Set current year in footer -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 
 </body>
 

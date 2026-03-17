@@ -1,9 +1,61 @@
-{% extends "base.html" %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Ramakrishna's Portfolio{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramakrishna's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Tailwind CSS for instant styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-{% block content %}
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="font-bold text-2xl tracking-tight hover:text-gray-600 transition">Ramakrishna
+                    Saravanan</a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
+                    <a href="index.html" class="hover:text-black transition">Home</a>
+                    <a href="portfolio.html" class="hover:text-black transition">Work</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu content -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-100 rounded">Home</a>
+                <a href="portfolio.html" class="block py-2 px-4 text-sm hover:bg-gray-100 rounded">Work</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Script to toggle mobile menu -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 flex-grow">
 
 <!-- SECTION 1: Hero / Bio -->
 <section class="py-12 md:py-24">
@@ -36,7 +88,7 @@
 
             <!-- Updated: Added text-justify -->
             <p class="text-lg text-gray-600 leading-relaxed text-justify">
-                I’m an aspiring AI engineer who is passionate towards solving interdisciplinary problems while turning
+                I'm an aspiring AI engineer who is passionate towards solving interdisciplinary problems while turning
                 complex data into intelligent, real-world systems.
                 When I'm AFK, I'm playing some sport or drinking way too much coffee.
                 <br><br>
@@ -50,7 +102,7 @@
                     Get in Touch
                 </a>
                 <!-- Updated: Now navigates to the Work/Portfolio page -->
-                <a href="{% url 'project_list' %}"
+                <a href="portfolio.html"
                     class="bg-white text-gray-900 border border-gray-200 px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition">
                     See My Work
                 </a>
@@ -70,7 +122,7 @@
             <!-- The Headshot -->
             <div
                 class="relative rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition duration-500 border-4 border-white w-64 h-64 md:w-[500px] md:h-[500px]">
-                <img src="{% static 'img/profile.jpg' %}"
+                <img src="img/profile.jpg"
                     onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Felix'" alt="Profile Headshot"
                     class="object-cover w-full h-full">
             </div>
@@ -112,7 +164,7 @@
                 <div class="w-full md:w-5/12 order-3 md:order-1 md:pl-8">
                     <!-- Optional Image for this event -->
                     <div class="h-48 w-full bg-gray-100 rounded-lg overflow-hidden shadow-sm">
-                        <img src="{% static 'Journey/IITP/IMG20240403175353.jpg' %}"
+                        <img src="img/Journey/IITP/IMG20240403175353.jpg"
                             class="w-full h-full object-cover opacity-80">
                     </div>
                 </div>
@@ -123,7 +175,7 @@
                 <div class="w-full md:w-5/12 order-3 md:order-1 md:text-right md:pr-8">
                     <!-- Image on left for variety -->
                     <div class="h-48 w-full bg-gray-100 rounded-lg overflow-hidden shadow-sm">
-                        <img src="{% static 'Journey/SPARK/IMG20240705191136~2.jpg' %}"
+                        <img src="img/Journey/SPARK/IMG20240705191136~2.jpg"
                             class="w-full h-full object-cover opacity-80">
                     </div>
                 </div>
@@ -158,7 +210,7 @@
                     3</div>
                 <div class="w-full md:w-5/12 order-3 md:order-1 md:pl-8">
                     <div class="h-48 w-full bg-gray-100 rounded-lg overflow-hidden shadow-sm">
-                        <img src="{% static 'Journey/PRISM/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ec285aaef7cc6ddc6c23bad47c8cf39b6bf601434aa912e008f44f13c7909a98b87.png' %}"
+                        <img src="img/Journey/PRISM/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ec285aaef7cc6ddc6c23bad47c8cf39b6bf601434aa912e008f44f13c7909a98b87.png"
                             class="w-full h-full object-cover opacity-80">
                     </div>
                 </div>
@@ -169,7 +221,7 @@
                 <div class="w-full md:w-5/12 order-3 md:order-1 md:text-right md:pr-8">
                     <!-- Image on left for variety -->
                     <div class="h-48 w-full bg-gray-100 rounded-lg overflow-hidden shadow-sm">
-                        <img src="{% static 'Journey/NU/IMG20251015135956~2.jpg' %}"
+                        <img src="img/Journey/NU/IMG20251015135956~2.jpg"
                             class="w-full h-full object-cover opacity-80">
                     </div>
                 </div>
@@ -207,7 +259,7 @@
                     and certifications.
                 </p>
 
-                <a href="{% static 'resume.pdf' %}" download
+                <a href="resume.pdf" download
                     class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition transform hover:-translate-y-1 shadow-xl flex items-center gap-2 mx-auto inline-flex">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -221,4 +273,46 @@
     </div>
 </section>
 
-{% endblock %}
+    </main>
+
+    <!-- Footer (Updated) -->
+    <footer class="bg-gray-900 text-white py-6 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+
+                <!-- Copyright Only -->
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <p class="text-gray-400 text-sm">
+                        &copy; <span id="year"></span> Ramakrishna Saravanan || Built with <span class="text-white">HTML</span>
+                        & <span class="text-white">Tailwind</span>.
+                    </p>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex space-x-8 text-sm font-medium">
+                    <a href="https://github.com/RickuSicku/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors duration-300">
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/ramakrishna-saravanan-146078230/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors duration-300">
+                        LinkedIn
+                    </a>
+                    <a href="mailto:ramakrishna1106s@gmail.com"
+                        class="text-gray-400 hover:text-white transition-colors duration-300">
+                        Contact
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Set current year in footer -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
